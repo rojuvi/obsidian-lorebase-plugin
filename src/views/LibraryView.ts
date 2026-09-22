@@ -1467,7 +1467,7 @@ export class LibraryView extends ItemView {
             || field === 'dateCompleted'
         ))) return true;
         if (this.viewState.sort.field === 'dateStarted' && changedFields.includes('started')) return true;
-        if (changedFields.includes('status') && this.filter.statuses.length > 0) return true;
+        if (changedFields.includes('status') && (this.filter.statuses.length > 0 || this.viewState.group?.mode === 'status')) return true;
         if (changedFields.includes('favorite') && this.filter.favoriteOnly) return true;
         return false;
     }

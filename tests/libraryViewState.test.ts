@@ -168,4 +168,15 @@ describe('library view metadata and persistence', () => {
         expect(grouped.map((entry) => entry.label)).toEqual(['July 2026', 'June 2026', 'No date']);
         expect(grouped.map((entry) => entry.items.length)).toEqual([1, 1, 1]);
     });
+
+    it('groups completed items by status and respects order', () => {
+        const grouped = groupMediaItems([
+            item({ status: 'playing'}),
+            item({ status: 'completed' }),
+            item({ status: 'not_started' }),
+            item({ status: 'unknown' }),
+        ] as unknown as MediaItem[], 'status', 'desc', 'en-US');
+        expect(grouped.map((entry) => entry.label)).toEqual(['No status', 'Playing', 'Not started', 'Completed']);
+        expect(grouped.map((entry) => entry.items.length)).toEqual([1, 1, 1, 1]);
+    });
 });

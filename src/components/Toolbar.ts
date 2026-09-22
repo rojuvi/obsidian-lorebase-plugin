@@ -509,7 +509,8 @@ export class Toolbar {
         }
         options.push(
             { value: 'finishedMonth', label: copy.finishedMonth },
-            { value: 'finishedYear', label: copy.finishedYear }
+            { value: 'finishedYear', label: copy.finishedYear },
+            { value: 'status', label: copy.byStatus }
         );
         createLorebaseDropdown(
             dropdown,
@@ -702,7 +703,7 @@ export class Toolbar {
     private viewText(): {
         configure: string; modified: string; baseView: string; savedViews: string; reset: string;
         update: string; deleteView: string; viewName: string; saveAs: string; sortBy: string;
-        groupBy: string; noGrouping: string; series: string; finishedMonth: string; finishedYear: string;
+        groupBy: string; noGrouping: string; series: string; finishedMonth: string; finishedYear: string; byStatus: string;
         filters: string; noFilters: string; addFilter: string; builtIn: string; noteFields: string;
         additional: string; showMore: string; showLess: string;
         missingField: string; remove: string; rename: string; from: string; to: string; operators: Record<string, string>;
@@ -713,7 +714,7 @@ export class Toolbar {
             savedViews: 'Сохранённые виды', reset: 'Сбросить', update: 'Обновить вид',
             deleteView: 'Удалить вид', viewName: 'Название вида', saveAs: 'Сохранить как',
             sortBy: 'Сортировка', groupBy: 'Группировка', noGrouping: 'Без группировки',
-            series: 'По серии', finishedMonth: 'По месяцу окончания', finishedYear: 'По году окончания',
+            series: 'По серии', finishedMonth: 'По месяцу окончания', finishedYear: 'По году окончания', byStatus: 'По статусу',
             filters: 'Фильтры', noFilters: 'Нет активных фильтров', addFilter: 'Добавить фильтр',
             builtIn: 'Основные', noteFields: 'Поля заметок', missingField: 'Поле отсутствует',
             additional: 'Дополнительные', showMore: 'Показать ещё', showLess: 'Скрыть дополнительные',
@@ -731,7 +732,7 @@ export class Toolbar {
             savedViews: 'Збережені вигляди', reset: 'Скинути', update: 'Оновити вигляд',
             deleteView: 'Видалити вигляд', viewName: 'Назва вигляду', saveAs: 'Зберегти як',
             sortBy: 'Сортування', groupBy: 'Групування', noGrouping: 'Без групування',
-            series: 'За серією', finishedMonth: 'За місяцем завершення', finishedYear: 'За роком завершення',
+            series: 'За серією', finishedMonth: 'За місяцем завершення', finishedYear: 'За роком завершення', byStatus: 'За статусом',
             filters: 'Фільтри', noFilters: 'Немає активних фільтрів', addFilter: 'Додати фільтр',
             builtIn: 'Основні', noteFields: 'Поля нотаток', missingField: 'Поле відсутнє',
             additional: 'Додаткові', showMore: 'Показати ще', showLess: 'Сховати додаткові',
@@ -749,7 +750,7 @@ export class Toolbar {
             savedViews: 'Saved views', reset: 'Reset', update: 'Update view',
             deleteView: 'Delete view', viewName: 'View name', saveAs: 'Save as',
             sortBy: 'Sort', groupBy: 'Group', noGrouping: 'No grouping',
-            series: 'By series', finishedMonth: 'By finish month', finishedYear: 'By finish year',
+            series: 'By series', finishedMonth: 'By finish month', finishedYear: 'By finish year', byStatus: 'By status',
             filters: 'Filters', noFilters: 'No active filters', addFilter: 'Add filter',
             builtIn: 'Built in', noteFields: 'Note fields', missingField: 'Missing field',
             additional: 'Additional', showMore: 'Show more', showLess: 'Show less',
