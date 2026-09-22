@@ -11,6 +11,8 @@ import {
     SortField,
     SortOrder,
 } from '../../types';
+import { i18n } from '../../localization';
+import { STATUS_GROUP_ORDER } from '../../constants';
 
 type SimpleFieldValue = string | number | boolean | string[] | null;
 
@@ -260,6 +262,15 @@ export function groupMediaItems(
             key = series || '__missing__';
             label = series || (locale.startsWith('ru') ? 'Без серии' : locale.startsWith('uk') ? 'Без серії' : 'No series');
             missing = !series;
+        } else if (mode === 'status') {
+            const statusLabels: Record<string, string> = i18n.getStatusLabels();
+            const status = item.status.trim();
+            key = status || '__missing__';
+            if (status) {
+                label = statusLabels[status]
+            }
+            label = label || (locale.startsWith('ru') ? 'Без серии' : locale.startsWith('uk') ? 'Без серії' : 'No status');
+            missing = !status;
         } else {
             const dateValue = parseDateValue(item.finished ?? (item.type === 'game' ? item.dateCompleted : null));
             if (dateValue === null) {
@@ -290,6 +301,11 @@ export function groupMediaItems(
             if (left.missing !== right.missing) return left.missing ? 1 : -1;
             if (mode === 'series') {
                 const comparison = left.label.localeCompare(right.label, locale, { numeric: true });
+                return order === 'asc' ? comparison : -comparison;
+            } else if (mode === 'status') {
+                const leftIndex = STATUS_GROUP_ORDER.indexOf(left.key as MediaStatus)
+                const rightIndex = STATUS_GROUP_ORDER.indexOf(right.key as MediaStatus)
+                const comparison = rightIndex - leftIndex
                 return order === 'asc' ? comparison : -comparison;
             }
             return order === 'asc' ? left.timestamp - right.timestamp : right.timestamp - left.timestamp;

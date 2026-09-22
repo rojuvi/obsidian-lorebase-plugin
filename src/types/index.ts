@@ -196,7 +196,7 @@ export interface FieldDefinition {
     options?: Array<{ value: string; label: string }>;
 }
 
-export type GroupMode = 'none' | 'series' | 'finishedMonth' | 'finishedYear';
+export type GroupMode = 'none' | 'series' | 'finishedMonth' | 'finishedYear' | 'status';
 
 export interface GroupSpec {
     mode: GroupMode;

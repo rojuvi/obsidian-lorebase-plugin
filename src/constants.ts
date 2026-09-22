@@ -797,6 +797,18 @@ export const STATUS_CONFIG: Record<MediaStatus, { pathD: string }> = {
     },
 };
 
+export const STATUS_GROUP_ORDER: Array<MediaStatus> = [
+    'playing',
+    'watching',
+    'paused',
+    'planned',
+    'wishlist',
+    'sandbox',
+    'not_started',
+    'dropped',
+    'completed'
+]
+
 // =============================================================================
 // ICON MAPS
 // =============================================================================
