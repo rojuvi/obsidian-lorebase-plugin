@@ -350,7 +350,7 @@ function normalizeOrder(value: unknown, fallback: SortOrder): SortOrder {
 }
 
 function normalizeGroupMode(value: unknown, fallback: GroupMode): GroupMode {
-    return value === 'none' || value === 'series' || value === 'finishedMonth' || value === 'finishedYear'
+    return value === 'none' || value === 'series' || value === 'finishedMonth' || value === 'finishedYear' || value === 'status'
         ? value
         : fallback;
 }
