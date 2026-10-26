@@ -801,10 +801,10 @@ export const STATUS_GROUP_ORDER: Array<MediaStatus> = [
     'playing',
     'watching',
     'paused',
+    'not_started',
     'planned',
     'wishlist',
     'sandbox',
-    'not_started',
     'dropped',
     'completed'
 ]
